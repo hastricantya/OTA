@@ -1,0 +1,15 @@
+import pandas as pd
+
+# Define the URLs of the CSV files
+url1 = 'https://raw.githubusercontent.com/hastricantya/OTA/main/Final_LabelledTravelokaRemoved.csv'
+url2 = 'https://raw.githubusercontent.com/hastricantya/OTA/main/Final_LabelledTiketcomRemoved.csv'
+
+# Read the CSV files from the URLs into DataFrames
+df1 = pd.read_csv(url1)
+df2 = pd.read_csv(url2)
+
+# Merge the two DataFrames using all columns as they have the same column names
+merged_df = pd.concat([df1, df2], ignore_index=True)
+
+# Save the merged DataFrame to a new CSV file
+merged_df.to_csv('Final_Data_OTA.csv', index=False)
